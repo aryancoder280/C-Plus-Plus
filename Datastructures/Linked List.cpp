@@ -32,24 +32,17 @@ void insert(int x)
 	}
 }
 
-int remove(int x)
+void remove(int x)
 {
 	node *t=start;
 	node *p;
-	if(!start)
-           return -1;
-      	while(t->val!=x)
+	while(t->val!=x)
 	{
 		p=t;
 		t=t->next;
 	}
-	if(t==NULL)
-	  return 0;
-        else
-	{
-		p->next=t->next;
-            	delete t;
-	}
+	p->next=t->next;
+	delete t;
 }
 
 void search(int x)
@@ -101,21 +94,7 @@ int main()
 					 	insert(x);	break;
 			case 2 : 	cout<<"\nEnter the element to be removed : ";
 						cin>>x;
-					int t=remove(x);
-				         if(t==-1)
-					   { 
-						   cout<<"Linked list is empty\n";
-					          break;
-					   }   
-				          else if(t==0)
-					  { 
-						  cout<<"Number is not present\n";
-					          break;
-					  }
-                                        else
-					{
-						break;
-					}
+						remove(x); 	break;
 			case 3 : 	cout<<"\nEnter the element to be searched : ";
 						cin>>x;
 						search(x); 	break;
